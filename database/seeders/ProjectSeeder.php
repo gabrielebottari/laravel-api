@@ -33,6 +33,8 @@ class ProjectSeeder extends Seeder
 
             $localImagePath = ''; 
 
+            $imagePath = null;
+
             //Utilizza l'immagine locale se disponibile; altrimenti, usa un'immagine di Faker
             $imagePath = $localImagePath ?: $faker->imageUrl(640, 480, 'projects', true);
 

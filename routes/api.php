@@ -17,9 +17,15 @@ use App\Http\Controllers\Api\ProjectController as ApiProjectController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+
+Route::name('api.')->group(function() {
+    
+    Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+        return $request->user();
+    });
+    //mia api per restituire json
+    Route::resource('projects', ApiProjectController::class)->only([
+        'index',
+        'show'
+    ]);
 });
-
-
-Route::get('/projects', [ApiProjectController::class, 'index']);

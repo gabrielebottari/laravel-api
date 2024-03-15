@@ -15,6 +15,21 @@ class ContactController extends Controller
     {
         $contacts = Contact::all();
 
+        $contactsQuery = Contact::select('*');
+
+
+        $queryStringParams = request()->all();
+
+        if (isset($queryStringParams['name'])) {
+            $contactsQuery->where('name', 'LIKE', '%'.$queryStringParams['name'].'%');
+        }
+
+        if (isset($queryStringParams['email'])) {
+            $contactsQuery->where('email', 'LIKE', '%'.$queryStringParams['email'].'%');
+        }
+
+        $contacts = $contactsQuery->get();
+
         return view('admin.contacts.index', compact('contacts'));
     }
 

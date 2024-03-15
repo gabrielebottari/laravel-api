@@ -39,6 +39,9 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('admin.technologies.index') }}">Tecnologie <i class="fa-solid fa-microchip"></i></a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('admin.contacts.index') }}">Contatti <i class="fa-solid fa-address-book"></i></a>
+                            </li>
                         </ul>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
